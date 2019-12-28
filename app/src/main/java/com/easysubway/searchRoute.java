@@ -19,6 +19,8 @@ public class searchRoute extends BaseActivity {
 
     private Button final_search;
     private Button start_search;
+    private TextView start_result;
+    private TextView final_result;
     static  final int GET_STRING = 1;
 
     private TextView textmain;
@@ -36,6 +38,10 @@ public class searchRoute extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_route);
         start_search = findViewById(R.id.start_search);
+        final_search = findViewById(R.id.start_search);
+        start_result = findViewById(R.id.start_result);
+        final_result = findViewById(R.id.final_result);
+        RouteStation r= new RouteStation();
 
         start_search.setOnClickListener(
                 new View.OnClickListener()
@@ -50,10 +56,33 @@ public class searchRoute extends BaseActivity {
             }
         );
 
+        final_search.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent=new Intent(searchRoute.this,SearchActivity.class);
+                        intent.putExtra("is_theme_white", is_theme_white);
+                        startActivity(intent);
+                    }
+                }
+        );
+
         mContext = this;
         textmain = findViewById(R.id.textmain);
-        Button button = (Button)findViewById(R.id.start_search);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button start_button = (Button)findViewById(R.id.start_search);
+        start_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(searchRoute.this, SearchActivity.class);
+                intent.putExtra("is_theme_white", is_theme_white);
+                startActivityForResult(intent, GET_STRING);
+            }
+        });
+
+        Button final_button = (Button)findViewById(R.id.final_search);
+        final_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(searchRoute.this, SearchActivity.class);

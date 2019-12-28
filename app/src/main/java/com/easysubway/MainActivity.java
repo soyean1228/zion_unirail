@@ -19,7 +19,7 @@ public class MainActivity extends BaseActivity {
 
     private Button black_theme;
     private Button white_theme;
-    private Button search;
+    //private Button search;
     private Button search_route;
     private Button start_activity;
     static  final int GET_STRING = 1;
@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         black_theme = findViewById(R.id.black_theme);
         white_theme = findViewById(R.id.white_theme);
-        search = findViewById(R.id.start_search1);
+        //search = findViewById(R.id.start_search1);
         search_route = findViewById(R.id.search_route);
         textmain = findViewById(R.id.textmain);
         start_activity=findViewById(R.id.start_activity);
@@ -70,8 +70,8 @@ public class MainActivity extends BaseActivity {
                                 white_theme.setBackgroundColor(Color.BLACK);
                                 textmain.setTextColor(Color.WHITE);
                                 textmain.setBackgroundColor(Color.BLACK);
-                                search.setBackgroundColor(Color.BLACK);
-                                search.setTextColor(Color.WHITE);
+//                                search.setBackgroundColor(Color.BLACK);
+//                                search.setTextColor(Color.WHITE);
 
                                 black_theme.setTextColor(Color.WHITE);
                                 white_theme.setTextColor(Color.WHITE);
@@ -92,8 +92,8 @@ public class MainActivity extends BaseActivity {
                                 white_theme.setBackgroundColor(Color.WHITE);
                                 textmain.setTextColor(Color.BLACK);
                                 textmain.setBackgroundColor(Color.WHITE);
-                                search.setBackgroundColor(Color.WHITE);
-                                search.setTextColor(Color.BLACK);
+//                                search.setBackgroundColor(Color.WHITE);
+//                                search.setTextColor(Color.BLACK);
 
                                 black_theme.setTextColor(Color.BLACK);
                                 white_theme.setTextColor(Color.BLACK);
@@ -105,15 +105,6 @@ public class MainActivity extends BaseActivity {
 
         mContext = this;
         textmain = findViewById(R.id.textmain);
-        Button button = (Button)findViewById(R.id.start_search1);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                intent.putExtra("is_theme_white", is_theme_white);
-                startActivityForResult(intent, GET_STRING);
-            }
-        });
 
         if(getIntent() != null && getIntent().getStringExtra("OpenAPIKey") != null)
             openAPIKey = getIntent().getStringExtra("OpenAPIKey");

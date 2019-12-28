@@ -601,7 +601,6 @@ public class MyMenu {
     private void setHashMap() {
         mMenu.put("subway", subwayName);
     }
-
     // 각 메뉴 반환
     public ArrayList<String> getMenu(String menuTitle) { return mMenu.get(menuTitle); }
 }

@@ -51,11 +51,6 @@ public class SearchActivity extends Activity {
                 intent.putExtra("OpenAPIKey", WebViewInterface.openAPIKey);
                 intent.putExtra("SubwayLocationAPIKey", WebViewInterface.subwayLocationAPIKey);
                 intent.putExtra("StationNM", edit.getText().toString());
-               /* Bundle extra=getIntent().getExtras();
-                boolean is_theme_white;
-                is_theme_white = extra.getBoolean("is_theme_white");
-                intent.putExtra("is_theme_white", is_theme_white);*/
-
                 WebViewInterface.mContext.startActivity(intent);
                 startActivity(intent);
             }

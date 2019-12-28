@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EasySubway.iml" filepath="$PROJECT_DIR$/EasySubway.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/trafficsubway-release/trafficsubway-release.iml" filepath="$PROJECT_DIR$/trafficsubway-release/trafficsubway-release.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zion_unirail.iml" filepath="$PROJECT_DIR$/zion_unirail.iml" />
     </modules>
   </component>
 </project>

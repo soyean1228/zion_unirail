@@ -85,17 +85,6 @@ public class SettingActivity extends Activity {
                         }
                 );
 
-        /*button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Log.i("Boolean-check",getBoolean+"");
-                button_color.setTextColor(Color.RED);
-                button_color.setBackgroundColor(Color.BLACK);
-
-            }
-        });
-        */
     }
-    //public void colorChange(this, )
+
 }

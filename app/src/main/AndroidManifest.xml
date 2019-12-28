@@ -29,6 +29,7 @@
 
         <activity android:name=".SearchActivity"></activity>
         <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".searchRoute"></activity>
     </application>
 
 </manifest>

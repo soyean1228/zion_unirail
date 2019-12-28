@@ -32,7 +32,7 @@
             android:src="@android:drawable/ic_media_rew" />
 
         <Button
-            android:id="@+id/Search"
+            android:id="@+id/start_search1"
             android:background="#000000"
             android:layout_width="50dp"
             android:layout_height="55dp"

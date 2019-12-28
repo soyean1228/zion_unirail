@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -18,10 +17,10 @@ public class MainActivity extends BaseActivity {
 
     boolean is_theme_white = false;
 
-   // private ConstraintLayout layout;
     private Button black_theme;
     private Button white_theme;
     private Button search;
+    private Button search_route;
     private Button start_activity;
     static  final int GET_STRING = 1;
 
@@ -39,12 +38,25 @@ public class MainActivity extends BaseActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //layout = findViewById(R.id.layout);
         black_theme = findViewById(R.id.black_theme);
         white_theme = findViewById(R.id.white_theme);
-        search = findViewById(R.id.Search);
+        search = findViewById(R.id.start_search1);
+        search_route = findViewById(R.id.search_route);
         textmain = findViewById(R.id.textmain);
         start_activity=findViewById(R.id.start_activity);
+
+        search_route.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent=new Intent(MainActivity.this,searchRoute.class);
+                        intent.putExtra("is_theme_white", is_theme_white);
+                        startActivity(intent);
+                    }
+            }
+        );
 
         black_theme.setOnClickListener
                 (
@@ -54,14 +66,12 @@ public class MainActivity extends BaseActivity {
                             public void onClick(View v)
                             {
                                 is_theme_white = false;
-                                //setContentView(R.layout.activity_main_black);
                                 black_theme.setBackgroundColor(Color.BLACK);
                                 white_theme.setBackgroundColor(Color.BLACK);
                                 textmain.setTextColor(Color.WHITE);
                                 textmain.setBackgroundColor(Color.BLACK);
                                 search.setBackgroundColor(Color.BLACK);
                                 search.setTextColor(Color.WHITE);
-                               // layout.setBackgroundColor(Color.BLACK);
 
                                 black_theme.setTextColor(Color.WHITE);
                                 white_theme.setTextColor(Color.WHITE);
@@ -78,14 +88,12 @@ public class MainActivity extends BaseActivity {
                             public void onClick(View v)
                             {
                                 is_theme_white = true;
-                                //setContentView(R.layout.activity_main);
                                 black_theme.setBackgroundColor(Color.WHITE);
                                 white_theme.setBackgroundColor(Color.WHITE);
                                 textmain.setTextColor(Color.BLACK);
                                 textmain.setBackgroundColor(Color.WHITE);
                                 search.setBackgroundColor(Color.WHITE);
                                 search.setTextColor(Color.BLACK);
-                                //layout.setBackgroundColor(Color.WHITE);
 
                                 black_theme.setTextColor(Color.BLACK);
                                 white_theme.setTextColor(Color.BLACK);
@@ -97,7 +105,7 @@ public class MainActivity extends BaseActivity {
 
         mContext = this;
         textmain = findViewById(R.id.textmain);
-        Button button = (Button)findViewById(R.id.Search);
+        Button button = (Button)findViewById(R.id.start_search1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,16 +132,6 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-/*
-    public void colorSet(button){
-        if((button3.color == white || set==1) {
-            text.setTextColor(Color.RED);
-            button3.setTextColor(Color.RED);
-        }
-        if(())
-    }
-  */
-
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == GET_STRING){
             if(resultCode == RESULT_OK){
@@ -180,3 +178,4 @@ public class MainActivity extends BaseActivity {
     private WebView lineMapWebview;
     private WebViewInterface mWebViewInterface;
 }
+

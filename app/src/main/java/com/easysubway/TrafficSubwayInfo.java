@@ -95,7 +95,7 @@ public class TrafficSubwayInfo extends BaseActivity
     private ArrayList<String> lineArrayList = new ArrayList();
     private HashSet<String> lineHashSet = new HashSet();
     private CustomProgressDialog customProgressDialog;
-    private TextView subway_inf;
+
     //ExitInfo
     private TextView exitinfo;
 

@@ -29,8 +29,8 @@ public class MainActivity extends BaseActivity {
 
     public MainActivity()
     {
-        openAPIKey = "70575677706d696333327152507752";
-        subwayLocationAPIKey = "70575677706d696333327152507752";
+        openAPIKey = "71536a5044736861373274514e706b";
+        subwayLocationAPIKey = "71536a5044736861373274514e706b";
 
     }
 

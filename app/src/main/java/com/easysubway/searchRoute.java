@@ -2,11 +2,8 @@ package com.easysubway;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,10 +16,10 @@ public class searchRoute extends BaseActivity {
 
     private Button final_search;
     private Button start_search;
-    private TextView start_result;
-    private TextView final_result;
+    private Button search;
+    private TextView start_station;
+    private TextView final_station;
     static  final int GET_STRING = 1;
-
     private TextView textmain;
     public static Context mContext;
 
@@ -39,9 +36,16 @@ public class searchRoute extends BaseActivity {
         setContentView(R.layout.search_route);
         start_search = findViewById(R.id.start_search);
         final_search = findViewById(R.id.start_search);
-        start_result = findViewById(R.id.start_result);
-        final_result = findViewById(R.id.final_result);
+        start_station = findViewById(R.id.start_station);
+        final_station = findViewById(R.id.final_station);
+        search = findViewById(R.id.search);
         RouteStation r= new RouteStation();
+
+        final String s = r.getStartStation();
+        final String f = r.getFinalStation();
+
+        start_station.setText(s);
+        final_station.setText(f);
 
         start_search.setOnClickListener(
                 new View.OnClickListener()
@@ -64,6 +68,21 @@ public class searchRoute extends BaseActivity {
                     {
                         Intent intent=new Intent(searchRoute.this,SearchActivity.class);
                         intent.putExtra("is_theme_white", is_theme_white);
+                        startActivity(intent);
+                    }
+                }
+        );
+
+        search.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent=new Intent(searchRoute.this,SearchRouteResult.class);
+                        intent.putExtra("is_theme_white", is_theme_white);
+                        intent.putExtra("startStation",s);
+                        intent.putExtra("finalStation",f);
                         startActivity(intent);
                     }
                 }
@@ -116,32 +135,19 @@ public class searchRoute extends BaseActivity {
                                              {
                                                  finish();
                                              }
-
                                              final searchRoute this$0;
-
                                              {
                                                  this.this$0 = searchRoute.this;
-                                                 // super();
                                              }
                                          }
         );
-        /*lineMapWebview = (WebView)findViewById(R.id.line_map_webview);
-        lineMapWebview.setWebViewClient(new WebViewClient());
-        lineMapWebview.getSettings().setJavaScriptEnabled(true);
-        lineMapWebview.getSettings().setBuiltInZoomControls(true);
-        lineMapWebview.getSettings().setSupportZoom(true);
-        lineMapWebview.getSettings().setDisplayZoomControls(false);
-        lineMapWebview.getSettings().setDefaultTextEncodingName("UTF-8");
-        mWebViewInterface = new WebViewInterface(this, lineMapWebview, openAPIKey, subwayLocationAPIKey);
-        lineMapWebview.addJavascriptInterface(mWebViewInterface, "Android");
-        lineMapWebview.loadUrl("file:///android_asset/mSeoul_Subway.html");*/
+
     }
 
 
     private String openAPIKey;
     private String subwayLocationAPIKey;
     private ImageView btnBackSubway;
-    //private WebView lineMapWebview;
-    //private WebViewInterface mWebViewInterface;
+
 }
 
